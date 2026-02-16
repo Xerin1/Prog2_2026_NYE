@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+public class TemperatureReader {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Adja meg az aktuális hőmérsékletet: ");
+        double temperature = scanner.nextDouble();
+        
+        System.out.println("A hőmérséklet: " + temperature + "°C");
+        
+        if (temperature < 0) {
+            System.out.println("fagypont alatti");
+        } else if (temperature >= 0 && temperature <= 30) {
+            System.out.println("átlagos");
+        } else {
+            System.out.println("túl meleg");
+        }
+        
+        scanner.close();
+    }
+}
