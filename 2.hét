@@ -20,3 +20,53 @@ public class TemperatureReader {
         scanner.close();
     }
 }
+public class TemperatureReader {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        double seconds;
+        do {
+            System.out.print("Hány másodperccel a villámlás után hallotta a dörgést? ");
+            seconds = scanner.nextDouble();
+        } while (seconds < 0);
+        
+        double distance = seconds * 343; // Hangsebesség kb. 343 m/s
+        
+        System.out.println("A vihar távolsága: " + distance + " méter");
+        
+        scanner.close();
+    }
+}
+
+public class TemperatureReader {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        int n;
+        do {
+            System.out.print("Adjon meg egy számot 1-20 között: ");
+            n = scanner.nextInt();
+        } while (n < 1 || n > 20);
+        
+        // Torta rajzolása
+        // Teteje
+        for (int i = 0; i < n; i++) {
+            System.out.print("*");
+        }
+        System.out.println();
+        
+        // Középső rész
+        for (int i = 0; i < n; i++) {
+            System.out.print("|");
+        }
+        System.out.println();
+        
+        // Alja
+        for (int i = 0; i < n; i++) {
+            System.out.print("_");
+        }
+        System.out.println();
+        
+        scanner.close();
+    }
+}
