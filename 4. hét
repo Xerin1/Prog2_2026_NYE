@@ -1,0 +1,81 @@
+import java.util.Random;
+import java.util.Scanner;
+
+public class App {
+    public static void main(String[] args) throws Exception {
+        if (args.length != 3) {
+            System.out.println("Használat: 4.het <művelet> <szám1> <szám2>");
+            System.out.println("Műveletek: összeadás, kivonás, szorzás, osztás");
+            return;
+        }
+
+        String muvelet = args[0];
+        double szam1;
+        double szam2;
+
+        try {
+            szam1 = Double.parseDouble(args[1]);
+            szam2 = Double.parseDouble(args[2]);
+        } catch (NumberFormatException e) {
+            System.out.println("Hiba: A második és harmadik argumentum számnak kell lennie.");
+            return;
+        }
+
+        double eredmeny = 0;
+        boolean ervenyesMuvelet = true;
+
+        switch (muvelet) {
+            case "összeadás":
+                eredmeny = szam1 + szam2;
+                break;
+            case "kivonás":
+                eredmeny = szam1 - szam2;
+                break;
+            case "szorzás":
+                eredmeny = szam1 * szam2;
+                break;
+            case "osztás":
+                if (szam2 == 0) {
+                    System.out.println("Hiba: Nullával való osztás nem megengedett.");
+                    return;
+                }
+                eredmeny = szam1 / szam2;
+                break;
+            default:
+                ervenyesMuvelet = false;
+                System.out.println("Hiba: Érvénytelen művelet. Használj: összeadás, kivonás, szorzás, osztás");
+                break;
+        }
+
+        if (ervenyesMuvelet) {
+            System.out.println("Eredmény: " + eredmeny);
+        }
+    }
+}
+
+
+public class App {
+    public static void main(String[] args) throws Exception {
+        Random rand = new Random();
+        int szam = rand.nextInt(100) + 1; // 1-100 közötti véletlen szám
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Találgass egy számot 1 és 100 között!");
+
+        while (true) {
+            System.out.print("Tipp: ");
+            int tipp = scanner.nextInt();
+
+            if (tipp < szam) {
+                System.out.println("Nagyobb!");
+            } else if (tipp > szam) {
+                System.out.println("Kisebb!");
+            } else {
+                System.out.println("Eltaláltad! A szám: " + szam);
+                break;
+            }
+        }
+
+        scanner.close();
+    }
+} 
